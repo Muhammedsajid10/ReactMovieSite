@@ -1,0 +1,16 @@
+.movie-details-container{
+    background-color: rgb(18 17 18 / 88%);
+    max-width: 80%;
+    padding: 129px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    transform: translate(194px, 42px);
+    
+}
+.btn{
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+

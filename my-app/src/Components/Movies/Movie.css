@@ -1,0 +1,26 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.card{
+    transition: transform .3s;
+}
+.card:hover{
+    transform: scale(1.3);
+}
+/* .movieDetailss{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+    
+} */
