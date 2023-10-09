@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
+import { movieContext } from './Context/ContextPovider';
 
 const NAV = () => {
   const navigate = useNavigate()
+  const {movie, setMovie} = useContext(movieContext)
+  const [search, setSearch] = useState('')
   
   const navigationLatestMovie = () => {
     navigate('/')
@@ -18,12 +21,21 @@ const NAV = () => {
   const navigateComedyMovie = () => {
     navigate('/comedyMovie')
   }
+
+  const searchHandle = () => {
+    const searchData = movie.filter((item=>item.title.toLowerCase().includes(search.toLowerCase())))
+    setMovie(searchData)
+
+  }
+
+
+
   return (
     <div>
 
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand href="/" style={{fontSize:"26px",fontWeight:"bold"}}>ViewVivid</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -48,8 +60,10 @@ const NAV = () => {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={search}
+                onChange={(e)=>setSearch(e.target.value)}
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={searchHandle}>Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

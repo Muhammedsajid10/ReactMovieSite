@@ -10,7 +10,8 @@ import { movieContext } from '../Context/ContextPovider';
 
 // const ComedyMovie = () => {
 const Movie = (props) => {
-    const [movie, setMovie] = useState([])
+    const {movie, setMovie} = useContext(movieContext)
+    // const [movie, setMovie] = useState([])
     const [hoverMovie, setHoverMovie] = useState(null)
     const navigate = useNavigate()
     const { movieId, setMovieId } = useContext(movieContext)
@@ -24,7 +25,7 @@ const Movie = (props) => {
     useEffect(() => {
         fetchingMovie()
 
-    }, [])
+    }, [props])
 
     const handleMouseEnter = (obj) => {
         setHoverMovie(obj)
@@ -78,6 +79,8 @@ const Movie = (props) => {
 }
 
 export default Movie
+
+
 
 
 
